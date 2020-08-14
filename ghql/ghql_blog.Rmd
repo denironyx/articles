@@ -2,7 +2,7 @@
 title: "Interacting with GraphQL APIs in R"
 author: "Scott Chamberlain, Dennis Irorere" 
 date: "8/14/2020"
-output: md_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
