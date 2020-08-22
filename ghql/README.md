@@ -11,7 +11,7 @@ And then, there is R
 --------------------
 
 R is a free software environment for statistical computing and graphics.
-Well, that’s how it’s officially define. But, trust me its gradually
+Well, that’s how it’s officially defined. But, trust me its gradually
 evolving to do more than statistical computing and making of beautiful
 graphics.
 
@@ -19,7 +19,7 @@ Moving on
 ---------
 
 In order for R to interact with any GraphQL API, it requires a GraphQL
-client. That’s where `ghql` packages, a GraphQL client for R, developed
+client. That’s where `ghql`, a GraphQL client for R, developed
 by Scott Chamberlain comes into play. Still confused? I hope the flow
 chart below helps you make more sense of it. ![GraphQL client and R
 connection flow.](GHQL.png)
@@ -35,7 +35,7 @@ Some GraphQL terms
 Working with `Countries List`, a GraphQL public API
 ---------------------------------------------------
 
-A public GraphQL API for information about countries, continents, and
+The [Countries GraphQL API](https://github.com/trevorblades/countries) is a public GraphQL API for information about countries, continents, and
 languages. This public API uses [Countries
 List](https://annexare.github.io/Countries/) and
 [provinces](https://github.com/substack/provinces) as data sources, so
