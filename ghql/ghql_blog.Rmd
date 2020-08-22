@@ -71,7 +71,7 @@ Inspecting the schema
 new$link
 ```
 
-define a variable as a named list
+Define a variable as a named list
 ```{r}
 variable <- list(
   code = "DE"
@@ -91,3 +91,44 @@ country_data <- result$data$country %>%
   as_tibble()
 country_data
 ```
+
+## More examples
+Working with a GraphQL API without a defined variable named list
+
+```{r}
+link <- 'https://countries.trevorblades.com/'
+
+conn <- GraphqlClient$new(url = link)
+
+qry <- Query$new()
+
+
+qry$query('x', '{
+continent(code: "AF") {
+    countries{
+    code
+    name
+    native
+    capital
+    currency
+    phone
+    languages {
+      name
+    }
+    }
+}
+  }
+          ')
+
+res <- conn$exec(qry$queries$x)
+
+res <- jsonlite::fromJSON(res, 
+                          flatten = TRUE)
+
+res_data <- res$data$continent$countries %>% 
+  as.data.frame()
+
+head(res_data)
+
+```
+

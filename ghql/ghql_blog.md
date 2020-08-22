@@ -105,7 +105,7 @@ Inspecting the schema
     ##   }
     ## }
 
-define a variable as a named list
+Define a variable as a named list
 
     variable <- list(
       code = "DE"
@@ -149,3 +149,57 @@ Convert the json data into a tibble object
     ##   name    native      capital currency phone languages$code $name 
     ##   <chr>   <chr>       <chr>   <chr>    <chr> <chr>          <chr> 
     ## 1 Germany Deutschland Berlin  EUR      49    de             German
+
+More examples
+-------------
+
+Working with a GraphQL API without a defined variable named list
+
+    link <- 'https://countries.trevorblades.com/'
+
+    conn <- GraphqlClient$new(url = link)
+
+    qry <- Query$new()
+
+
+    qry$query('x', '{
+    continent(code: "AF") {
+        countries{
+        code
+        name
+        native
+        capital
+        currency
+        phone
+        languages {
+          name
+        }
+        }
+    }
+      }
+              ')
+
+    res <- conn$exec(qry$queries$x)
+
+    res <- jsonlite::fromJSON(res, 
+                              flatten = TRUE)
+
+    res_data <- res$data$continent$countries %>% 
+      as.data.frame()
+
+    head(res_data)
+
+    ##   code                             name                           native
+    ## 1   AO                           Angola                           Angola
+    ## 2   BF                     Burkina Faso                     Burkina Faso
+    ## 3   BI                          Burundi                          Burundi
+    ## 4   BJ                            Benin                            Bénin
+    ## 5   BW                         Botswana                         Botswana
+    ## 6   CD Democratic Republic of the Congo République démocratique du Congo
+    ##       capital currency phone                                     languages
+    ## 1      Luanda      AOA   244                                    Portuguese
+    ## 2 Ouagadougou      XOF   226                                  French, Peul
+    ## 3   Bujumbura      BIF   257                               French, Kirundi
+    ## 4  Porto-Novo      XOF   229                                        French
+    ## 5    Gaborone      BWP   267                               English, Tswana
+    ## 6    Kinshasa      CDF   243 French, Lingala, Kongo, Swahili, Luba-Katanga
