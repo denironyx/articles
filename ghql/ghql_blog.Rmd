@@ -1,6 +1,6 @@
 ---
 title: "Interacting with GraphQL APIs in R"
-author: "Scott Chamberlain, Dennis Irorere" 
+author: "Dennis Irorere, Scott Chamberlain" 
 date: "8/14/2020"
 output: md_document
 ---
@@ -8,6 +8,8 @@ output: md_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+## How did I find out about ghql?
+After spending days researching about the R packages that can interact with a GraphQL API. Amazingly, I found about three packages, but I picked `ghql` over the others since it met my needs and I am Scott's fan boy. He writes really good R codes and never seizes to provide one with assistance when needed.
 
 ## So what is GraphQL?
 GraphQL is a query language for application programming interfaces (APIs) that prioritizes giving clients exactly the data they request. It's designed to make APIs flexible, fast and friendly. Basically, it is used to load data from a server to a client and it does this in a much more efficient manner than traditional methods and services.

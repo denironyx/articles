@@ -1,3 +1,12 @@
+How did I find out about ghql?
+------------------------------
+
+After spending days researching about the R packages that can interact
+with a GraphQL API. Amazingly, I found about three packages, but I
+picked `ghql` over the others since it met my needs and I am Scott’s fan
+boy. He writes really good R codes and never seizes to provide one with
+assistance when needed.
+
 So what is GraphQL?
 -------------------
 
